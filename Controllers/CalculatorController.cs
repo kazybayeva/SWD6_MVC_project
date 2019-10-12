@@ -18,7 +18,7 @@ namespace Tutorial1.Controllers
             ViewData["secondNumber"] = secondNumber;
             ViewData["result"] = firstNumber + secondNumber;
 
-            return View();
+            return View("Result");
         }
 
         [Route("{firstNumber:int}/{secondNumber:int:min(1)}")]
