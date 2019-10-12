@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Tutorial1.Data;
 
 namespace Tutorial1
 {
@@ -15,6 +17,11 @@ namespace Tutorial1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MoviesContext>(options =>
+            {
+                options.UseSqlite("Filename=movies.db");
+            });
+            
             services.AddMvc();
         }
 
